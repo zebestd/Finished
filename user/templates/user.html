@@ -1,0 +1,70 @@
+
+
+{% block content %}
+<div class="row my-4">
+    <div class="col-md-4"></div>
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header bg-info text-white">
+                Usta Profil Sayfasi
+                
+            </div>
+            
+            <div class="row p-3">
+                <div class="col-md-8">
+                    <table class="table table-borderless">
+                        <thead>
+                            <span class="h4">{{ user.username }} profili</span class="h4">
+                                <a class="btn btn-info btn-sm float-right" href="{% url 'user-profile-update' %}">Duzenle</a>
+                            <hr>
+                        </thead>
+                        <tbody>
+                            <div class="col-md-4">
+                                <img class="img-thumbnail" src="{{ user.usta.resim.url }}" alt="profile-image">
+                            </div>
+                            <tr>
+                                <th scope="row">Kullanici Ismi</th>
+                                <td>{{ user.username }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Firma veya Usta Adi</th>
+                                <td>{{ user.usta.isim }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Kategori</th>
+                                <td>{{ user.usta.kategori }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Website</th>
+                                <td>{{ user.usta.website }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">E-Posta</th>
+                                <td>{{ user.usta.eposta }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Phone</th>
+                                <td>{{ user.usta.telefon }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Aciklama</th>
+                                <td>{{ user.usta.aciklama }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Il</th>
+                                <td>{{ user.usta.il }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Ilce</th>
+                                <td>{{ user.usta.ilce }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

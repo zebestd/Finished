@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %}Ananas{% endblock %}
+{% block content %}
+
+                Profili Duzenle
+           
+                    <form method="POST" id="ustaForm" data-ilce-url="{% url 'ajax_load_ilce' %}" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ user_form }}
+                        {{ usta_form }}
+                        <input class="btn btn-info" type="submit" value="Guncelle">
+
+
+                        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+                        <script>
+                            $("#id_il").change(function () {
+                              var url = $("#ustaForm").attr("data-ilce-url");  
+                              var ilId = $(this).val();  
+                        
+                              $.ajax({                      
+                                url: url,                    
+                                data: {
+                                  'il': ilId       
+                                },
+                                success: function (data) {  
+                                  $("#id_ilce").html(data);  
+                                }
+                              });
+                        
+                            });
+                          </script>
+                        
+                    </form>
+                
+
+{% endblock %}
